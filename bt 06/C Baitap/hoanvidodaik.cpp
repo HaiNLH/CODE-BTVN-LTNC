@@ -1,28 +1,36 @@
 #include <iostream>
 using namespace std;
-
-void permutation(string s, int i , int n)
-{
-    if(i==n-1)
-    {
-        cout<<s<<endl;
+#define MAX 100
+int a[MAX], m[MAX], n, k;
+void nhap(){
+    cin>>n>>k;
+    for(int i =1; i<=n; i++)
+    m[i]=true;
+}
+void xuat(){
+    for(int i =1; i<=k; i++){
+        cout<<a[i];
     }
-    for(int j =i; j<n; j++)
+    cout<<endl;
+}
+
+void duyet(int index){
+    int j;
+    for(j=1; j<=n;j++)
     {
-        swap(s[i],s[j]);
-        permutation(s, i+1, n);
-        swap(s[i],s[j]);
+        if(m[j]){
+            a[index]=j;
+            m[j]=false;
+            if(index==k) xuat();
+            else 
+                duyet(index+1);
+            m[j]=true; 
+        }
     }
 }
 
-int main ()
-{
-    string str="";
-    int n,k; cin>>n>>k;
-    for(char i ='a'; i<'a'+n; i++){
-        str+=i;
-    }
-    permutation(str, 0, k);
-
-    return 0;
+int main (){
+    nhap();
+    duyet(1);
 }
+include <uiostyream>

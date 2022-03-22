@@ -1,8 +1,14 @@
 #include <iostream>
 using namespace std;
-void partition(int n )
+void partition(int sum)
 {
-    if()
+    if(index==sum) {cout<<sum;}
+    else {  
+        for(int i =1; i<=n;i++)
+        {
+           
+        }
+    }
 }
 int main ()
 {

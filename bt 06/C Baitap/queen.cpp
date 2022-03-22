@@ -2,7 +2,7 @@
 #include<math.h>
 using namespace std;
 
-int vitri[100];
+int a[1000];
 
 bool check(int x,int y){
 
@@ -17,12 +17,12 @@ void output(int n){
       for(int i=1; i<=n; i++)
     {
         for(int j =1; j<=n; j++){
-            board[i][j]='-';  
+            board[i][j]='0';  
         }
     }
     for(int i =1; i<= n; i++){cout<<a[i]<<" ";}
     cout<<endl;
-    for(int i =1; i<=n ;i++) board[a[i]][i]='*';
+    for(int i =1; i<=n ;i++) board[a[i]][i]='1';
     for(int i =1; i<=n; i++){
         for(int j =1; j<=n; j++){
             cout<<board[i][j]<<" ";

@@ -1,52 +1,30 @@
-#include <iostream>
+#include<iostream>
+
 using namespace std;
-int main () 
-{
-    int x,y; cin>>x>>y;
 
-    int maxx=x;
-    int maxy=y;
-    int minx=0;
-    int miny =0;
-    int k =1;
-    int i =minx;
-    int j =miny;
-    int a[100][100];
-    while(k<=x*y){
-        for(j+=miny;j<maxy;j++){
-
-            a[i][j]=k++; //first row of the matrix
-            
-        }maxy--;
-        j-=1;
-        for(i=i+1;i<maxx;i++){
-
-            a[i][j]=k++; //last column of the matrix
-        }maxx--;
-        i-=1;
-        if(k==x*y) break;
-        for(j=maxy-1;j>=miny;j--){
-          
-            a[i][j]=k++; //loop to the beginning of last row
-            
-        }miny++;
-        j+=1;
-        for(i=maxx-1;i>minx;i--){
-           
-            a[i][j]=k++;
-            
-        }minx++;
-        i+=1;
-        
-    }
-    for(int c=0;c<x;c++){
-        for(int d=0; d<y; d++){
-            cout<<a[c][d]<<" ";
-        }
-        cout<<endl;
-    }
-    return 0;
-    
-    
-
+int main() {
+	int m, n;
+	cin >> m >> n;
+	int a[m][n];
+	int dong = m, cot = n, k = 1, p = 0, i, j;
+		while(k <= m*n){
+		for(i = p; i < cot; i++) /*Loop to access the first row of the array*/
+			a[p][i] = k++;
+		for(i = p+1; i < dong; i++) /*Loop tp access the last column of the array*/
+			a[i][cot-1] = k++;
+		if ( p != dong-1){
+			for(i = cot-2; i >=p; i--) /*Loop to access the last row of the array*/
+				a[dong-1][i] = k++;
+		}	
+		if(p!=cot-1){
+			for(i = dong-2; i > p; i--) /*Loop to access the first column of the array*/
+				a[i][p] = k++;
+		}	
+		p++;dong --; cot --;
+	}
+	for(i = 0; i < m; i++){
+		for(j = 0; j < n; j++)
+			cout << a[i][j] << " ";
+		cout << endl;
+	}
 }
